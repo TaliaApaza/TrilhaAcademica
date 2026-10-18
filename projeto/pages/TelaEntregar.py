@@ -20,7 +20,7 @@ class TelaEntregar():
                 tarefas,
             )
         else:
-            st.warning("Nãohátarefas para entregar.Parabéns!!!")
+            st.warning("Não há tarefas para entregar.Parabéns!!!")
         disciplina_selecionada = st.selectbox(
             "Escolha a disciplina da tarefa:",
             disciplinas,
@@ -29,9 +29,9 @@ class TelaEntregar():
             self.clicar_entregar(tarefa_selecionada, disciplina_selecionada)
 
     def clicar_entregar(self, tarefa, disciplina):
-        self.servico.emprestar(tarefa, disciplina)
+        self.servico.entregar(tarefa, disciplina)
         st.success("Entrega registrada com sucesso!!!")
         time.sleep(2)
-        st.switch_page("index.py")
+        st.rerun()
 
 TelaEntregar().inicio_entrega()
