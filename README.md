@@ -76,7 +76,3 @@ Clique em cada um dos links abaixo para acessar o artefato específico.
 1. [Modelo de Casos de Uso](doc/cdu/cdu.md)
 1. [Modelo de Domínio](doc/dominio/dominio.md)
 1. [Modelo de Dados](doc/bd/bd.md)
-
-# Manual da Desenvolvedor
-
-[Orientações para os desenvolvedores do projeto](doc/guia-ds/guia.md)
