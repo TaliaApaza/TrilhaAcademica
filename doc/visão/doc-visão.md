@@ -4,7 +4,7 @@
 
 | Data | Versão | Descrição | Autores |
 | :---: | :---: | :---: | :---: |
-| 07/01/2026 | 0.1 | Versão inicial | Professor |
+| 16/10/2026 | 0.1 | Versão inicial | Juan e equipe |
 | - | - | - |  - |
 
 

@@ -5,8 +5,11 @@ Projeto desenvolvido, como exemplo, do contexto da disciplina de Análise e Proj
 # Responsável
 
 1. Aluno. Juan Davi de Almeida Silva - Aluno do curso Informática Para Internet , no ano letivo de 2026
+
 2. Aluna. Talia De Sousa Apaza - Aluna do curso Informática Para Internet no ano letivo de 2026
+
 3. Aluno. Elverty Alberton Justino da Silva - Aluno de Informática Para Internet no ano letivo de 2026
+
 4. Aluno. Jose Hiago Da Batista- Aluno de Informática Para Internet , no ano letivo de 2026
 
 # Manipulação de Dados, Validações e Ciclo de Vida do Objeto
