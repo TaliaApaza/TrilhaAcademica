@@ -10,7 +10,7 @@ class BaseModel(Model):#Herda a clase model do peewee
 ## Classe ALUNO
 ####################
 class Aluno(BaseModel):
-    login = CharField(unique=True)
+    login = CharField(unique=True) #CharField aceita caracteres
     senha = CharField()
 
     def set_login(self, login):
@@ -29,7 +29,7 @@ class Aluno(BaseModel):
 class Disciplina(BaseModel):
     nome = CharField(unique=True)
     professor = CharField()
-    aluno = ForeignKeyField(Aluno, backref='disciplinas')
+    aluno = ForeignKeyField(Aluno, backref='disciplinas')#faz o relacionamento onde foreignkey se4rá chave estrangeira
 
     def __str__(self):
         return f"({self.id}) {self.nome} {self.professor}"
@@ -98,7 +98,7 @@ def carga_inicial():
     aluno = Aluno.create(login='teste2', senha='senha123')
 
     # Criar algumas disciplinas iniciais
-    disciplina1 = Disciplina.create(nome='Matematica', professor='Lucianjo', aluno=aluno)
+    disciplina1 = Disciplina.create(nome='Matematica', professor='Lucianjo', aluno=aluno)#model.create()
     disciplina2 = Disciplina.create(nome='Português', professor='Fred', aluno=aluno)
    
 
