@@ -30,13 +30,3 @@ class ServicoEntrega():
 
         except Entrega.DoesNotExist:
             return "Erro: entrega não encontrada."
-
-    from peewee import IntegrityError
-from modelos.models import Aluno
-
-try:
-    Aluno.create(login="joao", senha="12345")
-    print("Aluno cadastrado com sucesso!")
-
-except IntegrityError:
-    print("Erro ao cadastrar aluno!")
