@@ -20,7 +20,7 @@ Foco: Operações CRUD clássicas, persistência do estado dos objetos e integri
 Objetivo Inserção de dados aqui!!!
 
 **1.Model.create():**
-Explicação
+O método é utilizado para criar e inserir um novo registro no banco de dados. Ele permite informar os valores dos campos do objeto diretamente no momento da criação.Ao utilizar create (), o sistema executa uma operação de inserção(INSERT) no banco de dados.A chave primária da nova linha é recuperada automaticamente e armazenada na instância do modelo. Isso permite que o objeto criado tenha acesso ao identificador do registro inserido.
 
 **2.Model.save():**
 Explicação
