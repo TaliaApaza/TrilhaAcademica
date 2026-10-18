@@ -19,6 +19,24 @@ class ServicoEntrega():
     def tarefas_disponiveis(self, usr_id):
         return self.dao_tarefas.get_disponiveis(usr_id)
 
-    def entregar(self, tarefa, disciplina):
+    def entregar(self, tarefa):
         self.dao_tarefas.marcar_indisponivel(tarefa)
-        return self.dao_entregas.entregar(tarefa, disciplina)
+        return self.dao_entregas.entregar(tarefa)
+
+    def cancelar_entrega(self, entrega_id):
+        try:
+            self.dao_entregas.cancelar_entrega(entrega_id)
+            return "Entrega cancelada com sucesso!"
+
+        except Entrega.DoesNotExist:
+            return "Erro: entrega não encontrada."
+
+    from peewee import IntegrityError
+from modelos.models import Aluno
+
+try:
+    Aluno.create(login="joao", senha="12345")
+    print("Aluno cadastrado com sucesso!")
+
+except IntegrityError:
+    print("Erro ao cadastrar aluno!")
