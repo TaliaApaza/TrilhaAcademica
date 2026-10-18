@@ -2,7 +2,7 @@
 
 Projeto desenvolvido, como exemplo, do contexto da disciplina de Análise e Projeto Orientado a Objetos com o objetivo de atividade academica.
 
-# Responsável
+# Responsáveis
 
 1. Aluno. Juan Davi de Almeida Silva - Aluno do curso Informática Para Internet , no ano letivo de 2026
 
