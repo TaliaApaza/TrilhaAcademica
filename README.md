@@ -27,7 +27,7 @@ Foco: Operações CRUD clássicas, persistência do estado dos objetos e integri
 antes de salvá-lo. Depois de salvar um objeto, é possível acessar sua chave primária por meio do atributo id.
 
 **3.insert_many()**
-A inserção em lote permite adicionar vários registros ao banco de dados em uma única operação. Ele ajuda a evitar utilizar uma operação individual para cada registro. É útil para importar grande quantidade de dados, tornando a inserção mais eficiente.
+Essa parte aq fica com minha amiga juana
 
 ## Leitura e busca de registros
 **Processo de consultar informações que já estão armazenadas em um banco de dados.**
