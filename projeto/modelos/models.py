@@ -49,22 +49,32 @@ class Disciplina(BaseModel):
 class Tarefa(BaseModel):
     titulo = CharField(unique=True)
     descricao = CharField()
+    disponivel = BooleanField(default=True)
     prazo = DateField()
     aluno = ForeignKeyField(Aluno, backref='tarefas')
     disciplina = ForeignKeyField(Disciplina, backref='tarefas')
 
     def __str__(self):
         return f"({self.id}) {self.titulo} {self.descricao}"
+    
     def set_nome(self, titulo):
         if isinstance(titulo, str) and titulo.strip():
             self.titulo = titulo
         else:
             raise ValueError("Titulo deve ser uma string não vazia.")
+        
     def set_descricao(self, descricao):
         if isinstance(descricao, str) and descricao.strip():
             self.descricao = descricao
         else:
             raise ValueError("Descriçao deve ser uma string não vazia.")
+        
+    def set_disponivel(self, disponivel):
+        if isinstance(disponivel, bool):
+            self.disponivel = disponivel
+        else:
+            raise ValueError("Disponível deve ser um valor booleano.")
+        
     def set_prazo(self, prazo):
         if isinstance(prazo, datetime.datetime):
             self.prazo = prazo
