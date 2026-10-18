@@ -50,7 +50,7 @@ class Tarefa(BaseModel):
     titulo = CharField(unique=True)
     descricao = CharField()
     prazo = DateField()
-    usuario = ForeignKeyField(Aluno, backref='tarefas')
+    aluno = ForeignKeyField(Aluno, backref='tarefas')
     disciplina = ForeignKeyField(Disciplina, backref='tarefas')
 
     def __str__(self):
@@ -95,7 +95,7 @@ def criar_tabelas():
 
 def carga_inicial():
     # Criar um Aluno inicialaliea
-    aluno = Aluno.create(login='teste', senha='senha123')
+    aluno = Aluno.create(login='teste2', senha='senha123')
 
     # Criar algumas disciplinas iniciais
     disciplina1 = Disciplina.create(nome='Matematica', professor='Lucianjo', aluno=aluno)
@@ -104,7 +104,7 @@ def carga_inicial():
 
     # Criar algumas tarefas iniciais
     #  iniciais
-    tarefa = Tarefa.create(titulo='Redação', descricao = 'Escrever uma redação de 30 linha', prazo = datetime.date(2026/11/13), aluno=aluno)
+    tarefa = Tarefa.create(titulo='Redação', descricao = 'Escrever uma redação de 30 linha', prazo = datetime.date(2026, 11, 13),disciplina=disciplina2, aluno=aluno)
 
 
 if __name__ == '__main__':
