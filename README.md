@@ -20,13 +20,14 @@ Foco: Operações CRUD clássicas, persistência do estado dos objetos e integri
 Objetivo Inserção de dados aqui!!!
 
 **1.Model.create():**
-O método é utilizado para criar e inserir um novo registro no banco de dados. Ele permite informar os valores dos campos do objeto diretamente no momento da criação.Ao utilizar create (), o sistema executa uma operação de inserção(INSERT) no banco de dados.A chave primária da nova linha é recuperada automaticamente e armazenada na instância do modelo. Isso permite que o objeto criado tenha acesso ao identificador do registro inserido.
+É utilizado para criar e inserir um novo registro no banco de dados. Ele permite informar os valores dos campos do objeto diretamente no momento da criação. Ao utilizar create (), o sistema executa uma operação de inserção(INSERT) no banco de dados. A chave primária da nova linha é recuperada automaticamente e armazenada na instância do modelo. Isso permite que o objeto criado tenha acesso ao identificador do registro inserido.
 
 **2.Model.save():**
-Explicação
+É utilizado para salvar um objeto no banco de dados.Ele permite criar um registro ou salvar alteracões em um objeto existente. Oferece mais controle sobre objeto
+antes de salvá-lo. Depois de salvar um objeto, é possível acessar sua chave primária por meio do atributo id.
 
 **3.insert_many()**
-Explicação
+A inserção em lote permite adicionar vários registros ao banco de dados em uma única operação. Ele ajuda a evitar utilizar uma operação individual para cada registro. É útil para importar grande quantidade de dados, tornando a inserção mais eficiente.
 
 ## Leitura e busca de registros
 Objetivo da Leitura e registro aqui!!!
