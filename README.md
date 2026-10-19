@@ -33,25 +33,32 @@ Essa parte aq fica com minha amiga juana
 **Processo de consultar informações que já estão armazenadas em um banco de dados.**
 
 **1.get():**
-Explicação
+É utilizado para buscar e recuperar um único registro que corresponda às condições informadas na consulta.
+Ele recebe filtros que determinam qual registro deve ser encontrado. Caso nenhum registro corresponda aos filtros, o método gera uma exceção chamada DoesNotExist.
 
 **2.get_or_none():**
-Explicação
+Realiza uma busca semelhante à do método get(), mas apresenta uma diferença importante: quando nenhum registro corresponde aos filtros informados, ele retorna None em vez de gerar uma exceção de registro não encontrado.
 
 **3.get_or_create()**
-Explicação
+É utilizado para obter um registro existente ou criar um novo
+caso não encontre nenhum que corresponda às condições
+fornecidas. Diferentemente dos dois métodos anteriores, ele reúne as operações de busca e criação em um único método.
 
 ## Atualização e Remoção
 **Operações utilizadas para modificar ou excluir informações que já estão armazenadas em um banco de dados.**
 
 **1.save():**
-Explicação
+É utilizado para obter um registro existente ou criar um novo
+caso não encontre nenhum que corresponda às condições fornecidas.
+Diferentemente dos dois métodos anteriores, ele reúne as operações de busca e criação em um único método.
 
 **2.update():**
-Explicação
+Permite criar uma consulta para atualizar vários registros de uma só vez. Já o método execute() executa essa consulta e
+retorna a quantidade de linhas modificadas.
 
 **3.execute():**
-Explicação
+Permite excluir uma instância específica de um modelo, ou seja, o documento apresenta parâmetros que permitem controlar a remoção de uma instância e de seus relacionamentos.
+
 
 **4.delete_instance()**
 Explicação
@@ -60,13 +67,14 @@ Explicação
 **São mecanismos que permitem executar funções automaticamente quando determinadas operações acontecem em um modelo, como antes ou depois de salvar ou excluir um registro.**
 
 **1.pre_save:**
-Explicação
+É chamado imediatamente antes de um objeto ser salvo no banco de dados. Recebe o argumento created, que indica se o objeto está sendo criado pela primeira vez ou atualizado.
 
 **2.post_save:**
-Explicação
+É chamado imediatamente depois que um objeto é salvo no banco de dados. Também recebe o argumento created, permitindo identificar se ocorreu uma criação ou atualização.
+
 
 **3.pre_delete**
-Explicação
+chamado imediatamente antes de um objeto ser excluído do banco de dados, quando se utiliza o método Model.delete_instance().
 
 
 # Documentação
