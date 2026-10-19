@@ -55,34 +55,33 @@ O argumento defaults é utilizado com get_or_create() para definir valores que s
 **Operações utilizadas para modificar ou excluir informações que já estão armazenadas em um banco de dados.**
 
 **1.save():**
-É utilizado para obter um registro existente ou criar um novo
-caso não encontre nenhum que corresponda às condições fornecidas.
-Diferentemente dos dois métodos anteriores, ele reúne as operações de busca e criação em um único método.
+É utilizado para obter um registro existente ou criar um novocaso não encontre nenhum que corresponda às condições fornecidas. Diferentemente dos dois métodos anteriores, ele reúne as operações de busca e criação em um único método. 
+Quando a instância já representa um registro salvo e possui uma chave primária, uma nova chamada de save() normalmente executa uma operação SQL UPDATE, em vez de INSERT.
+A chave primária do registro permanece a mesma.
 
-**2.update():**
-Permite criar uma consulta para atualizar vários registros de uma só vez. Já o método execute() executa essa consulta e
-retorna a quantidade de linhas modificadas.
-
-**3.execute():**
-executa a atualização.O resultado indica o número de linhas atualizadas.
-
-
+**2.update().execute():**
+Permite criar uma consulta para atualizar registros diretamente no banco de dados, sem precisar recuperar cada objeto individualmente. Apenas prepara a consulta.
+Já o método execute() executa essa consulta e retorna a quantidade de linhas modificadas.
+O método where() pode ser utilizado para determinar quais registros serão modificados.
 
 **4.delete_instance()**
-Permite excluir uma instância específica de um modelo, ou seja, o documento apresenta parâmetros que permitem controlar a remoção de uma instância e de seus relacionamentos.
+Permite excluir uma instância específica de um modelo. Normalmente, primeiro recuperamos o objeto utilizando get() e, em seguida, executamos a exclusão.
+O método retorna a quantidade de linhas excluídas e disponibiliza parâmetros adicionais para controlar a remoção de registros relacionados.
+
+recursive=True: permite excluir registros dependentes relacionados, de acordo com as relações entre os modelos.
+delete_nullable: controla o comportamento da exclusão em relacionamentos cujas chaves estrangeiras permitem valores nulos.
 
 ## Sinais/Hooks do Peewee
 **São mecanismos que permitem executar funções automaticamente quando determinadas operações acontecem em um modelo, como antes ou depois de salvar ou excluir um registro.**
 
 **1.pre_save:**
-É chamado imediatamente antes de um objeto ser salvo no banco de dados. Recebe o argumento created, que indica se o objeto está sendo criado pela primeira vez ou atualizado.
+É chamado imediatamente antes de um objeto ser salvo no banco de dados. Recebe o argumento *created*, que indica se o objeto está sendo criado pela primeira vez ou atualizado.
 
 **2.post_save:**
-É chamado imediatamente depois que um objeto é salvo no banco de dados. Também recebe o argumento created, permitindo identificar se ocorreu uma criação ou atualização.
-
+É chamado imediatamente depois que um objeto é salvo no banco de dados. Também recebe o argumento *created*, permitindo identificar se ocorreu uma criação ou atualização.
 
 **3.pre_delete**
-chamado imediatamente antes de um objeto ser excluído do banco de dados, quando se utiliza o método Model.delete_instance().
+É chamado imediatamente antes de um objeto ser excluído do banco de dados, quando se utiliza o método Model.delete_instance().
 
 
 # Documentação
