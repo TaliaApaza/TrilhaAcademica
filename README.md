@@ -92,11 +92,12 @@ Permite criar uma consulta para atualizar vários registros de uma só vez. Já 
 retorna a quantidade de linhas modificadas.
 
 **3.execute():**
-Permite excluir uma instância específica de um modelo, ou seja, o documento apresenta parâmetros que permitem controlar a remoção de uma instância e de seus relacionamentos.
+executa a atualização.O resultado indica o número de linhas atualizadas.
+
 
 
 **4.delete_instance()**
-Explicação
+Permite excluir uma instância específica de um modelo, ou seja, o documento apresenta parâmetros que permitem controlar a remoção de uma instância e de seus relacionamentos.
 
 ## Sinais/Hooks do Peewee
 **São mecanismos que permitem executar funções automaticamente quando determinadas operações acontecem em um modelo, como antes ou depois de salvar ou excluir um registro.**
