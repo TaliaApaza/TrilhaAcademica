@@ -40,11 +40,6 @@ A inserção em lote permite adicionar vários registros ao banco de dados de fo
 O método insert_many() recebe uma lista de dicionários ou de tuplas e constrói uma consulta para inserir os registros. A execução ocorre quando chamamos execute().
 
 Exemplo com dicionários:
-A inserção em lote permite adicionar vários registros ao banco de dados de maneira eficiente. Utilizar create() repetidamente dentro de um laço é uma alternativa, mas pode apresentar desempenho inferior, já que cada chamada gera uma inserção individual.
-
-O método insert_many() recebe uma lista de dicionários ou de tuplas e constrói uma consulta para inserir os registros. A execução ocorre quando chamamos execute().
-
-Exemplo com dicionários:
 alunos = [
     {"nome": "Maria", "idade": 16},
     {"nome": "João", "idade": 17},
