@@ -68,16 +68,44 @@ Quando usamos tuplas, precisamos informar os campos por meio do argumento fields
 **Processo de consultar informações que já estão armazenadas em um banco de dados.**
 
 **1.get():**
-É utilizado para buscar e recuperar um único registro que corresponda às condições informadas na consulta.
-Ele recebe filtros que determinam qual registro deve ser encontrado. Caso nenhum registro corresponda aos filtros, o método gera uma exceção chamada DoesNotExist.
+O método get() busca e recupera um único registro que corresponda às condições fornecidas na consulta. Quando ele encontra um registro, retorna uma instância do modelo. No entanto, caso nenhum registro corresponda às condições, responde com o tratamneot de exceção DoesNotExist. Esse método é indicado quando esperamos de fato encontrar determinado registro em vez de sua ausência.
+
+Exemplo:
+aluno = Aluno.get(Aluno.nome == "Ana")
+print(aluno.idade)
 
 **2.get_or_none():**
-Realiza uma busca semelhante à do método get(), mas apresenta uma diferença importante: quando nenhum registro corresponde aos filtros informados, ele retorna None em vez de gerar uma exceção de registro não encontrado.
+O método get_or_none() realiza uma busca muito semelhante à do get(). A principal diferença está no comportamento quando nenhum registro é encontrado. Enquanto o get() lança a exceção DoesNotExist, o get_or_none() retorna None. Isso facilita o tratamento de situações nas quais é possível que o registro pesquisado não exista. Portanto, o método é especialmente útil em consultas nas quais não há uma expectativa ou certeza da existência do registro.
+
+Exemplo:
+aluno = Aluno.get_or_none(
+    Aluno.nome == "Roberto"
+)
+
+if aluno is None:
+    print("Aluno não encontrado.")
+else:
+    print(aluno.nome)
 
 **3.get_or_create()**
-É utilizado para obter um registro existente ou criar um novo
-caso não encontre nenhum que corresponda às condições
-fornecidas. Diferentemente dos dois métodos anteriores, ele reúne as operações de busca e criação em um único método.
+O método get_or_create() combina as operações de busca e criação de registros. Inicialmente, procura um objeto que corresponda aos critérios informados. Se não encontrar, cria um novo registro. Ele retorna dois valores: a instância encontrada ou criada e um booleano chamado *created*, que indica se ocorreu uma criação.
+
+True: o registro foi criado.
+False: o registro já existia.
+
+Exemplo:
+aluno, created = Aluno.get_or_create(
+    nome="Ana"
+)
+
+**Argumento defaults**
+O argumento defaults é utilizado com get_or_create() para definir valores que serão atribuídos aos campos caso um novo registro precise ser criado. Esses valores não participam dos critérios de busca. Caso o registro já exista, ele será retornado sem que os valores de defaults modifiquem seus atributos.
+
+Exemplo:
+aluno, created = Aluno.get_or_create(
+    nome="Fernanda",
+    defaults={"idade": 17}
+)
 
 ## Atualização e Remoção
 **Operações utilizadas para modificar ou excluir informações que já estão armazenadas em um banco de dados.**
