@@ -20,14 +20,49 @@ Foco: Operações CRUD clássicas, persistência do estado dos objetos e integri
 **Processo de adicionar novas informações a um banco de dados.**
 
 **1.Model.create():**
-É utilizado para criar e inserir um novo registro no banco de dados. Ele permite informar os valores dos campos do objeto diretamente no momento da criação. Ao utiliza-lo o sistema executa uma operação de inserção(INSERT) no banco de dados. A chave primária da nova linha é recuperada automaticamente e armazenada na instância do modelo. Isso permite que o objeto criado tenha acesso ao identificador do registro inserido.
+O método create() utilizado para criar e inserir um novo registro no banco de dados. Ele permite informar os valores dos campos do objeto diretamente no momento da criação. Ao executar create(), o Peewee executa uma operação de inserção(INSERT) no banco de dados. A chave primária da nova linha é recuperada automaticamente e armazenada na instância do modelo. Isso permite que o objeto criado tenha acesso ao identificador do registro inserido.
+
+Exemplo:
+aluno = Aluno.create(nome="Ana", idade=17)
+print(aluno.id)
 
 **2.Model.save():**
-É utilizado para salvar um objeto no banco de dados.Ele permite criar um registro ou salvar alteracões em um objeto existente. Oferece mais controle sobre objeto
-antes de salvá-lo. Depois de salvar um objeto, é possível acessar sua chave primária por meio do atributo id.
+O método .save() é utilizado para persistir um objeto no banco de dados. Ele permite criar um registro ou salvar alterações em um objeto existente. Oferece mais controle sobre objeto antes de salvá-lo. Ele retorna a quantidade de linhas afetadas e é possível acessar sua chave primária por meio do atributo id.
+
+Exemplo:
+aluno = Aluno(nome="Carlos", idade=18)
+aluno.save()
+print(aluno.id)
 
 **3.insert_many()**
-Essa parte aq fica com minha amiga juana
+A inserção em lote permite adicionar vários registros ao banco de dados de forma mais eficiente. Utilizar create() várias vezes é uma alternativa, mas pode apresentar desempenho inferior, já que cada chamada gera uma inserção individual.
+
+O método insert_many() recebe uma lista de dicionários ou de tuplas e constrói uma consulta para inserir os registros. A execução ocorre quando chamamos execute().
+
+Exemplo com dicionários:
+A inserção em lote permite adicionar vários registros ao banco de dados de maneira eficiente. Utilizar create() repetidamente dentro de um laço é uma alternativa, mas pode apresentar desempenho inferior, já que cada chamada gera uma inserção individual.
+
+O método insert_many() recebe uma lista de dicionários ou de tuplas e constrói uma consulta para inserir os registros. A execução ocorre quando chamamos execute().
+
+Exemplo com dicionários:
+alunos = [
+    {"nome": "Maria", "idade": 16},
+    {"nome": "João", "idade": 17},
+    {"nome": "Beatriz", "idade": 18}
+]
+Aluno.insert_many(alunos).execute()
+
+Exemplo com tuplas:
+dados = [
+    ("Luiza", 17),
+    ("Pedro", 18)
+]
+Aluno.insert_many(
+    dados,
+    fields=[Aluno.nome, Aluno.idade]
+).execute()
+
+Quando usamos tuplas, precisamos informar os campos por meio do argumento fields, indicando a qual coluna corresponde cada posição da tupla.
 
 ## Leitura e busca de registros
 **Processo de consultar informações que já estão armazenadas em um banco de dados.**
